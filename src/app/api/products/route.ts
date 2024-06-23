@@ -22,9 +22,11 @@ export const GET = async (req: NextRequest) => {
   }
 };
 
+
+
 export const POST = async (req: NextRequest) => {
-    if (req.method !== "POST") {
-    return new NextResponse({ message: "Method not allowed" }, { status: 405 });
+  if (req.method !== "POST") {
+    return new NextResponse(JSON.stringify({ message: "Method not allowed" }), { status: 405 });
   }
   try {
     console.log("XXX");
@@ -41,6 +43,7 @@ export const POST = async (req: NextRequest) => {
     );
   }
 };
+
 
 
 
