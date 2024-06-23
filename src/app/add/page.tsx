@@ -44,18 +44,37 @@ const AddPage = () => {
     router.push("/");
   }
 
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   const { name, value, type, checked } = e.target;
+  //   const val = type === "checkbox" ? checked : value;
+
+  //   setInputs((prev) => ({
+  //     ...prev,
+  //     [name]: type === "checkbox" ? !prev[name] : val,
+  //   }));
+  // };
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value, type, checked } = e.target;
-    const val = type === "checkbox" ? checked : value;
-
-    setInputs((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? !prev[name] : val,
-    }));
+    const { name, value, type } = e.target;
+  
+    // Check if the event target is an input element with type checkbox
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
+      setInputs((prev) => ({
+        ...prev,
+        [name]: checked,
+      }));
+    } else {
+      setInputs((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
-
+  
   const changeOption = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setOption((prev) => ({
@@ -124,38 +143,6 @@ console.log(response);
       console.error("Error adding product:", error);
     }
   };
-//   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-
-//     try {
-//       let imageUrl = "/p6.png"; // Default image URL
-//       if (file) {
-//         imageUrl = await upload(); // Upload image and get the URL
-//       }
-// console.log(imageUrl);
-//       const response = await fetch("http://localhost:3000/api/products", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           img: imageUrl,
-//           ...inputs,
-//           options,
-//         }),
-//       });
-
-//       if (!response.ok) {
-//         throw new Error("Failed to add product");
-//       }
-
-//       const data = await response.json();
-//       router.push(`/product/${data.id}`);
-//     } catch (error) {
-//       console.error("Error adding product:", error);
-//     }
-//   };
-
   return (
     <div className="p-4 lg:px-20 xl:px-40 min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-9rem)] flex items-center justify-center text-red-500">
       <form onSubmit={handleSubmit} className="flex flex-wrap gap-6 max-w-screen-md w-full">
