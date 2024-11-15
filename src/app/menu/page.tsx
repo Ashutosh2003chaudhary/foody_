@@ -1,19 +1,20 @@
 import { MenuType } from "@/types/types";
+import { getBaseUrl } from "@/utils/urls";
 import Link from "next/link";
 import React from "react";
 
-const getData = async ()=>{
-  const res = await fetch("http://localhost:3000/api/categories",{
-    cache:"no-store"
-  })
+const getData = async () => {
+  const baseUrl = getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/categories`, {
+    cache: "no-store"
+  });
 
-  if(!res.ok){
-    throw new Error("Failed!");
-    
+  if (!res.ok) {
+    throw new Error("Failed to fetch products");
   }
 
-  return res.json()
-}
+  return res.json();
+};
 
 const MenuPage = async () => {
 

@@ -1,16 +1,18 @@
  import DeleteButton from "@/components/DeleteButton";
  import Price from "@/components/Price";
 import { ProductType } from "@/types/types";
+import { getBaseUrl } from "@/utils/urls";
 import Image from "next/image";
 import React from "react";
 
-const getData = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
-    cache: "no-store",
+const getData = async (category: string) => {
+  const baseUrl = getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/products?cat=${category}`, {
+    cache: "no-store"
   });
 
   if (!res.ok) {
-    throw new Error(" Failed!");
+    throw new Error("Failed to fetch products");
   }
 
   return res.json();

@@ -2,17 +2,19 @@ import { ProductType } from "@/types/types";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-const getData = async ()=>{
-  const res = await fetch("http://localhost:3000/api/products",{
-    cache:"no-store"
-  })
+import { getBaseUrl } from "@/utils/urls";
+const getData = async () => {
+  const baseUrl = getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/products`, {
+    cache: "no-store"
+  });
 
-  if(!res.ok){
-    throw new Error("Failed!");
+  if (!res.ok) {
+    throw new Error("Failed to fetch products");
   }
 
-  return res.json()
-}
+  return res.json();
+};
 
 const Featured = async () => {
 
