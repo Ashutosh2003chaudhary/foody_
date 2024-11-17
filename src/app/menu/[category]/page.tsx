@@ -12,7 +12,7 @@ export const revalidate = 60
 
 // const getData = async (category: string) => {
 //   const baseUrl = getBaseUrl();
-//   const res = await fetch(`${baseUrl}/api/products?cat=${category}`, {
+//   const res = await fetch(`/api/products?cat=${category}`, {
 //     cache: "no-store",
 //     headers: {
 //       'Content-Type': 'application/json',

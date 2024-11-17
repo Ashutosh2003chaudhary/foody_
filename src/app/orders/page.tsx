@@ -1,6 +1,7 @@
 "use client";
 
 import { OrderType } from "@/types/types";
+import { getBaseUrl } from "@/utils/urls";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
@@ -18,18 +19,18 @@ const OrdersPage = () => {
   if (status === "unauthenticated") {
     router.push("/");
   }
-
+  const baseUrl = getBaseUrl();
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
     queryFn: () =>
-      fetch("http://localhost:3000/api/orders").then((res) => res.json()),
+      fetch(`${baseUrl}/api/orders`).then((res) => res.json()),
   });
 
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: ({ id, status }: { id: string; status: string }) => {
-      return fetch(`http://localhost:3000/api/orders/${id}`, {
+      return fetch(`${baseUrl}/api/orders/${id}`, {
         method:"PUT",
         headers: {
           "Content-Type": "application/json",
