@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/navigation";
+
+export const dynamic = 'force-dynamic'
+
 const LoginPage = () => {
   const {status}=useSession();
   const router=useRouter();

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
+export const dynamic = 'force-dynamic'
+
 type Inputs = {
   title: string;
   desc: string;

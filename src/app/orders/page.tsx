@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { toast } from "react-toastify";
 
+export const dynamic = 'force-dynamic'
+
 const OrdersPage = () => {
   const { data: session, status } = useSession();
 

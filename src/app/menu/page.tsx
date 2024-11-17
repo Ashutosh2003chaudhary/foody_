@@ -3,6 +3,8 @@ import { getBaseUrl } from "@/utils/urls";
 import Link from "next/link";
 import React from "react";
 
+export const dynamic = 'force-dynamic'
+
 const getData = async () => {
   const baseUrl = getBaseUrl();
   const res = await fetch(`${baseUrl}/api/categories`, {
