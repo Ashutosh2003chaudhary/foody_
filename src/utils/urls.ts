@@ -19,7 +19,7 @@
 
 // utils/urls.ts
 const getBaseUrl = () => {
-  if (process.env.API_URL) return `https://${process.env.API_URL}`
+  if (process.env.API_URL) return process.env.API_URL
   // if (process.env.API_URL) return process.env.API_URL
   return 'http://localhost:3000'
 }

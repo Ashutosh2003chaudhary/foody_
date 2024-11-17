@@ -125,7 +125,7 @@ const AddPage = () => {
       const imageUrl = await upload();
  console.log(imageUrl)
  const baseUrl = getBaseUrl();
-      const response = await fetch(`$/api/products`, {
+      const response = await fetch(`${baseUrl}/api/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
