@@ -1,4 +1,5 @@
 "use client";
+import CheckoutButton from "@/components/CheckoutButton";
 import { useCartStore } from "@/utils/store";
 import { getBaseUrl } from "@/utils/urls";
 import { useSession } from "next-auth/react";
@@ -86,12 +87,14 @@ const CartPage = () => {
           <span className="">TOTAL(INCL. VAT)</span>
           <span className="font-bold">₹{totalPrice}</span>
         </div>
-        <button
+        {/* <button
           className="bg-red-500 text-white p-3 rounded-md w-1/2 self-end"
           onClick={handleCheckout}
         >
           CHECKOUT
-        </button>
+        </button> */}
+
+        <CheckoutButton amount={totalPrice}></CheckoutButton>
       </div>
     </div>
   );

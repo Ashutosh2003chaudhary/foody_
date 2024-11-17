@@ -473,7 +473,7 @@ axe-core@^4.6.2:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.7.2.tgz"
   integrity sha512-zIURGIS1E1Q4pcrMjp+nnEh+16G56eG/MUllJH8yEvw7asDo7Ac9uhC9KIH5jzpITueEZolfYglnCGIuSBz39g==
 
-axios@^1.7.2:
+axios@^1.6.8, axios@^1.7.2:
   version "1.7.2"
   resolved "https://registry.npmjs.org/axios/-/axios-1.7.2.tgz"
   integrity sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==
@@ -2190,6 +2190,13 @@ queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
+
+razorpay@^2.9.5:
+  version "2.9.5"
+  resolved "https://registry.npmjs.org/razorpay/-/razorpay-2.9.5.tgz"
+  integrity sha512-bmybwyszgfbYWAdO4igyHFk5zFj/D4YuoZAFNbyIYnPwzd+FBY5WvtpfUA9lVBMgnV4NzVEhncxR3It9RI/gCQ==
+  dependencies:
+    axios "^1.6.8"
 
 react-countdown@^2.3.5:
   version "2.3.5"
